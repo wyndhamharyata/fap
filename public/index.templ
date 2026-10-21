@@ -7,6 +7,25 @@ templ Index(name string) {
 }
 
 templ pageIndex(name string) {
-    <p>Hello Template!</p>
-    <p>My name is <span class="text-xl font-bold">{ name }</span></p>
+    <div>
+        <p>Hello Template!</p>
+        <p>My name is <span class="text-xl font-bold">{ name }</span></p>
+        <br/>
+        <p>Test for Ace.JS</p>
+        <br/>
+    </div>
+
+
+    <div class="">
+        <div id="editor">
+            test text here
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
 }

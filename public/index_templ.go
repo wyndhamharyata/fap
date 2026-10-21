@@ -54,7 +54,7 @@ func pageIndex(name string) templ.Component {
 			var_2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<p>")
+		_, err = templBuffer.WriteString("<div><p>")
 		if err != nil {
 			return err
 		}
@@ -81,7 +81,47 @@ func pageIndex(name string) templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</span></p>")
+		_, err = templBuffer.WriteString("</span></p><br><p>")
+		if err != nil {
+			return err
+		}
+		var_6 := `Test for Ace.JS`
+		_, err = templBuffer.WriteString(var_6)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</p><br></div><div class=\"\"><div id=\"editor\">")
+		if err != nil {
+			return err
+		}
+		var_7 := `test text here`
+		_, err = templBuffer.WriteString(var_7)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</div></div><script src=\"https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/ace.js\" type=\"text/javascript\" charset=\"utf-8\">")
+		if err != nil {
+			return err
+		}
+		var_8 := ``
+		_, err = templBuffer.WriteString(var_8)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</script><script>")
+		if err != nil {
+			return err
+		}
+		var_9 := `
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
+    `
+		_, err = templBuffer.WriteString(var_9)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</script>")
 		if err != nil {
 			return err
 		}

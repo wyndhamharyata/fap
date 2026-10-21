@@ -10,11 +10,20 @@ templ Head() {
         <script src="/dist/htmx.min.js"></script>
         <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
         <link rel="icon" type="image/x-icon" href="/dist/favicon.ico"/>
+        <style type="text/css" media="screen">
+            #editor { 
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
     </head>
 }
 
 templ Body(component templ.Component) {
-    <body class="bg-white px-6 w-full flex flex-col relative">
+    <body class="px-6 w-full flex flex-col relative">
         {! component}
     </body>
 }

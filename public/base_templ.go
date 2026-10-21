@@ -64,7 +64,24 @@ func Head() templ.Component {
 		if err != nil {
 			return err
 		}
-		_, err = templBuffer.WriteString("</script><link rel=\"icon\" type=\"image/x-icon\" href=\"/dist/favicon.ico\"></head>")
+		_, err = templBuffer.WriteString("</script><link rel=\"icon\" type=\"image/x-icon\" href=\"/dist/favicon.ico\"><style type=\"text/css\" media=\"screen\">")
+		if err != nil {
+			return err
+		}
+		var_5 := `
+            #editor { 
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        `
+		_, err = templBuffer.WriteString(var_5)
+		if err != nil {
+			return err
+		}
+		_, err = templBuffer.WriteString("</style></head>")
 		if err != nil {
 			return err
 		}
@@ -83,12 +100,12 @@ func Body(component templ.Component) templ.Component {
 			defer templ.ReleaseBuffer(templBuffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		var_5 := templ.GetChildren(ctx)
-		if var_5 == nil {
-			var_5 = templ.NopComponent
+		var_6 := templ.GetChildren(ctx)
+		if var_6 == nil {
+			var_6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, err = templBuffer.WriteString("<body class=\"bg-white px-6 w-full flex flex-col relative\">")
+		_, err = templBuffer.WriteString("<body class=\"px-6 w-full flex flex-col relative\">")
 		if err != nil {
 			return err
 		}
